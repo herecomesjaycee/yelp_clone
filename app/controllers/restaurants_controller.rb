@@ -14,9 +14,6 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(name: restaurant_params["name"],
       description: restaurant_params["description"],
       user_id: current_user.id)
-      p current_user.id
-      
-
     #@restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
       redirect_to restaurants_path
@@ -50,11 +47,8 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :description)
+    params.require(:restaurant).permit(:name, :description, :id)
   end
 
-  def reviews_for_restaurant(id)
-    @reviews = Review.where(:restaurant_id=>id)
-  end
 
 end

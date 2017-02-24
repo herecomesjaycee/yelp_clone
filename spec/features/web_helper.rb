@@ -13,3 +13,10 @@ def create_restaurant
 	fill_in 'Name', with: 'KFC'
 	click_button 'Create Restaurant'
 end
+
+def sign_in
+	   click_link 'Sign in'
+      fill_in("Email", with: "bob@example.com")
+      fill_in("Password", with: "123456789")
+      click_button 'Log in'
+end
